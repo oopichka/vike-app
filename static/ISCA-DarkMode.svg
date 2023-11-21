@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 997.79 676.68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231f20;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke: #fff;
+      }
+
+      .cls-1, .cls-4 {
+        stroke-width: 10px;
+      }
+
+      .cls-6 {
+        letter-spacing: .24em;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 15px;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-3, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        font-family: TimesNewRomanPS-BoldMT, 'Times New Roman';
+        font-size: 185px;
+        font-weight: 700;
+      }
+
+      .cls-7 {
+        letter-spacing: .19em;
+      }
+    </style>
+  </defs>
+  <ellipse class="cls-4" cx="498.9" cy="338.34" rx="333.33" ry="329.33" transform="translate(157.29 835.01) rotate(-89.62)"/>
+  <ellipse class="cls-4" cx="498.9" cy="338.34" rx="333.33" ry="493.9" transform="translate(157.29 835.01) rotate(-89.62)"/>
+  <ellipse class="cls-4" cx="498.86" cy="338.34" rx="333.33" ry="133.08" transform="translate(157.25 834.97) rotate(-89.62)"/>
+  <line class="cls-2" x1="5" y1="335.1" x2="992.72" y2="335.1"/>
+  <polygon class="cls-3" points="151.9 442.51 120.23 416.51 120.23 233.18 843.56 233.18 875.23 259.18 875.23 442.51 151.9 442.51"/>
+  <rect class="cls-1" x="154.23" y="260.51" width="723.33" height="183.33"/>
+  <text class="cls-5" transform="translate(225.71 415.18)"><tspan class="cls-6" x="0" y="0">ISC</tspan><tspan class="cls-7" x="442.24" y="0">A</tspan></text>
+</svg>
