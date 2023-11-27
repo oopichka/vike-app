@@ -25,7 +25,7 @@ export const SearchInput = () => {
   }, []);
 
   useEffect(() => {
-    console.log(searchQuery);
+    //console.log(searchQuery);
   }, [searchQuery]);
 
   return (

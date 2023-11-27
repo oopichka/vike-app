@@ -5,15 +5,17 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
+import { PageProps, homeProps } from "~/renderer/types";
 import { usePageContext } from "~/renderer/usePageContext";
 
 export { Page };
 
-function Page() {
+function Page({ props }: { props: homeProps }) {
   const context = usePageContext();
+  console.log(props);
   console.log(context);
   return (
-    <>
+    <div>
       <section></section>
       <div className="flex flex-col gap-6">
         <Card>
@@ -38,6 +40,6 @@ function Page() {
           <CardContent></CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
 }

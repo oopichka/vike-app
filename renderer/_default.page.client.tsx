@@ -16,7 +16,7 @@ async function render(pageContext: PageContextClient) {
   hydrateRoot(
     root,
     <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
+      <Page pageProps={pageProps} />
     </PageShell>
   );
 }

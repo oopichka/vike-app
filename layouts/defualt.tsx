@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // import ISCA_Logo from "@/../static/ISCA-LightMode.svg"
 
 import { Bell, LayoutDashboard, LogOut, User, UserCircle2 } from "lucide-react";
@@ -34,6 +35,8 @@ import { usePageContext } from "~/renderer/usePageContext";
  */
 const DefualtLayout = ({ children }: ChildProps) => {
   const context = usePageContext();
+  //@ts-ignore
+  console.log(context);
   return (
     <main className="h-screen w-screen flex flex-row items-center bg-accent overflow-hidden">
       <Sidebar />
@@ -87,10 +90,7 @@ const DefualtLayout = ({ children }: ChildProps) => {
             </DropdownMenu>
           </div>
         </header>
-        <section className="p-6">
-          {context.urlPathname}
-          {children}
-        </section>
+        <section className="p-6">{children}</section>
       </article>
     </main>
   );

@@ -15,7 +15,7 @@ async function render(pageContext: PageContextServer) {
     throw new Error("My render() hook expects pageContext.Page to be defined");
   const pageHtml = ReactDOMServer.renderToString(
     <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
+      <Page pageProps={pageProps} />
     </PageShell>
   );
 

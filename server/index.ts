@@ -56,13 +56,22 @@ async function startServer() {
   app.get("*", async (req, res, next) => {
     const pageContextInit = {
       urlOriginal: req.originalUrl,
+      pageProps: {
+        location: "/",
+        title: "Home",
+        data: {
+          homeInfo1: "string",
+        },
+      },
     };
     const pageContext = await renderPage(pageContextInit);
     const { httpResponse } = pageContext;
+
     if (!httpResponse) {
       return next();
     } else {
       const { body, statusCode, headers, earlyHints } = httpResponse;
+
       if (res.writeEarlyHints)
         res.writeEarlyHints({ link: earlyHints.map((e) => e.earlyHintLink) });
       headers.forEach(([name, value]) => res.setHeader(name, value));

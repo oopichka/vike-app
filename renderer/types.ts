@@ -1,5 +1,6 @@
 export type {
-  PageContextServer,
+  PageContextWithServerRouting as PageContext,
+  //*/
   /*
   // When using Client Routing https://vike.dev/clientRouting
   PageContextClient,
@@ -7,27 +8,47 @@ export type {
   /*/
   // When using Server Routing
   PageContextClientWithServerRouting as PageContextClient,
-  PageContextWithServerRouting as PageContext
-  //*/
-} from 'vike/types'
-export type { PageProps }
+  PageContextServer,
+} from "vike/types";
+export type { PageProps };
 
 // https://vike.dev/pageContext#typescript
 declare global {
   namespace Vike {
     interface PageContext {
-      Page: Page
-      pageProps?: PageProps
-      urlPathname: string
+      Page: Page;
+      pageProps?: PageProps;
+      urlPathname: string;
       exports: {
         documentProps?: {
-          title?: string
-          description?: string
-        }
-      }
+          title?: string;
+          description?: string;
+        };
+      };
     }
   }
 }
 
-type Page = (pageProps: PageProps) => React.ReactElement
-type PageProps = Record<string, unknown>
+interface pageProps {
+  location: string;
+  title: string;
+  desc: string;
+  data?: object;
+}
+
+export interface homeProps extends pageProps {
+  location: "/";
+  title: "Home";
+  data: {
+    homeInfo1: string;
+  };
+}
+
+export interface issuesProps extends pageProps {
+  location: "/issues";
+  title: "Issues";
+}
+
+type Page = ({ pageProps }: { pageProps?: PageProps }) => React.ReactElement;
+
+type PageProps = (issuesProps | homeProps | pageProps) | undefined;
