@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -5,27 +6,26 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-
-export { Page };
-
+import { usePageContext } from "~/renderer/usePageContext";
 function Page() {
   return (
     <div className="issue-page">
       <h2 className="routing-link"> ISCA / Issue: Vol. #, No. #, September</h2>
-      {currentIssue.map((currIssue) => (
-        <div
-          key={`${currIssue.issueVol}-${currIssue.issueNo}-${currIssue.month}`}
-        >
-          <h1>
-            Issue: Vol. {currIssue.issueVol}, No. {currIssue.issueNo},{" "}
-            {currIssue.month}
-          </h1>
-          <p className="editor-text">Editors: {currIssue.editors.join(", ")}</p>
-          <hr />
-        </div>
-      ))}
+      <div
+        key={`${currentIssue.issueVol}-${currentIssue.issueNo}-${currentIssue.month}`}
+      >
+        <h1>
+          Issue: Vol. {currentIssue.issueVol}, No. {currentIssue.issueNo},{" "}
+          {currentIssue.month}
+        </h1>
+        <p className="editor-text">
+          Editors: {currentIssue.editors.join(", ")}
+        </p>
+        <hr />
+      </div>
+
       <div className="issues">
-        {fakeIssues.map((issue) => (
+        {fakePapers.map((issue) => (
           <div key={issue.id} className="issue-box">
             <h3 className="title-text">{issue.title}</h3>
             <p className="author-text">Author: {issue.author}</p>
@@ -36,16 +36,31 @@ function Page() {
   );
 }
 
-const currentIssue = [
-  {
-    issueVol: "30",
-    issueNo: "3",
-    month: "September",
-    editors: ["Ajay Bandi", "Mohammad Hossain", "Ying Jin"],
-  },
-];
+interface Issue {
+  issueVol: string;
+  issueNo: string;
+  month: string;
+  editors: string[];
+}
+interface Paper {
+  id: number;
+  issueVol: string;
+  issueNo: string;
+  month: string;
+  title: string;
+  author: string;
+  abstract: string;
+  editors?: string[];
+}
 
-const fakeIssues = [
+const currentIssue: Issue = {
+  issueVol: "30",
+  issueNo: "3",
+  month: "September",
+  editors: ["Ajay Bandi", "Mohammad Hossain", "Ying Jin"],
+};
+
+const fakePapers: Paper[] = [
   {
     id: 1,
     issueVol: "30",
@@ -101,6 +116,7 @@ const fakeIssues = [
     abstract:
       "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
+
   //Fix so it only displays papers in current issue
   // {
   //   id: 6,
@@ -113,3 +129,5 @@ const fakeIssues = [
   // }
   // Add more fake issues as needed
 ];
+
+export default Page;

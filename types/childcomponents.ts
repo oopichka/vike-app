@@ -4,5 +4,11 @@
  *  be passed in.
  */
 export interface ChildProps {
-  children: any
+  children?:
+    | React.ReactElement
+    | React.ReactElement[]
+    | string
+    | string[]
+    | number
+    | number[];
 }

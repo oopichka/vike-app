@@ -1,3 +1,6 @@
+export default Page;
+
+import React, { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -5,25 +8,21 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { PageProps, homeProps } from "~/renderer/types";
 import { usePageContext } from "~/renderer/usePageContext";
 
-export { Page };
+// import { PageProps, homeProps } f
 
-function Page({ props }: { props: homeProps }) {
-  const context = usePageContext();
-  console.log(props);
-  console.log(context);
+function Page() {
   return (
-    <div>
+    <>
       <section></section>
       <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>
             <CardTitle>
-              <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+              <div className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                 Home
-              </h1>
+              </div>
             </CardTitle>
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
@@ -31,15 +30,15 @@ function Page({ props }: { props: homeProps }) {
         <Card>
           <CardHeader>
             <CardTitle>
-              <h2 className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-5xl">
+              <div className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-5xl">
                 Item
-              </h2>
+              </div>
             </CardTitle>
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent></CardContent>
         </Card>
       </div>
-    </div>
+    </>
   );
 }

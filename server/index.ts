@@ -53,32 +53,66 @@ async function startServer() {
 
   // Vike middleware. It should always be our last middleware (because it's a
   // catch-all middleware superseding any middleware placed after it).
+  // app.get("*", async (req, res, next) => {
+  //   const pageContextInit = {
+  //     urlOriginal: req.originalUrl,
+  //   };
+  //   const pageContext = await renderPage(pageContextInit);
+  //   const { httpResponse } = pageContext;
+
+  //   if (!httpResponse) {
+  //     return next();
+  //   } else {
+  //     const { body, statusCode, headers, earlyHints } = httpResponse;
+
+  //     if (res.writeEarlyHints)
+  //       res.writeEarlyHints({ link: earlyHints.map((e) => e.earlyHintLink) });
+  //     headers.forEach(([name, value]) => res.setHeader(name, value));
+  //     res.status(statusCode);
+  //     // For HTTP streams use httpResponse.pipe() instead, see https://vike.dev/stream
+  //     res.send(body);
+  //   }
+  // });
+
+  // app.get("*", async (req, res, next) => {
+  //   const pageContextInit = { urlOriginal: req.url };
+  //   const pageContext = await renderPage(pageContextInit);
+  //   const { httpResponse } = pageContext.httpResponse;
+  //   if (!httpResponse) return next();
+  //   // `httpResponse.pipe()` works with Node.js Streams as well as Web Streams.
+
+  //   const { body, statusCode, headers } = httpResponse;
+  //   headers.forEach(([name, value]) => res.setHeader(name, value));
+
+  //   httpResponse.pipe(res);
+  // });
+  // app.get("*", async (req, res, next) => {
+  //   const pageContextInit = {
+  //     urlOriginal: req.originalUrl,
+  //   };
+  //   const pageContext = await renderPage(pageContextInit);
+  //   const { httpResponse } = pageContext;
+  //   if (!httpResponse) {
+  //     return next();
+  //   } else {
+  //     const body = await httpResponse.getBody();
+  //     const { statusCode, contentType, headers } = httpResponse;
+  //     headers.forEach(([name, value]) => res.setHeader(name, value));
+  //     res.type(contentType);
+  //     res.status(statusCode).send(body);
+  //     // // For HTTP streams use httpResponse.pipe() instead, see https://vike.dev/stream
+  //   }
+  // });
   app.get("*", async (req, res, next) => {
-    const pageContextInit = {
-      urlOriginal: req.originalUrl,
-      pageProps: {
-        location: "/",
-        title: "Home",
-        data: {
-          homeInfo1: "string",
-        },
-      },
-    };
+    const pageContextInit = { urlOriginal: req.originalUrl };
     const pageContext = await renderPage(pageContextInit);
-    const { httpResponse } = pageContext;
+    if (pageContext.httpResponse === null) return next();
 
-    if (!httpResponse) {
-      return next();
-    } else {
-      const { body, statusCode, headers, earlyHints } = httpResponse;
+    const { getBody, statusCode, headers } = pageContext.httpResponse;
 
-      if (res.writeEarlyHints)
-        res.writeEarlyHints({ link: earlyHints.map((e) => e.earlyHintLink) });
-      headers.forEach(([name, value]) => res.setHeader(name, value));
-      res.status(statusCode);
-      // For HTTP streams use httpResponse.pipe() instead, see https://vike.dev/stream
-      res.send(body);
-    }
+    headers.forEach(([name, value]) => res.setHeader(name, value));
+
+    pageContext.httpResponse.pipe(res);
   });
 
   const port = process.env.PORT || 3000;

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // import ISCA_Logo from "@/../static/ISCA-LightMode.svg"
 
 import { Bell, LayoutDashboard, LogOut, User, UserCircle2 } from "lucide-react";
@@ -21,6 +20,7 @@ import {
 } from "~/components/ui/dropdown-menu";
 import Sidebar from "./sidebar";
 
+import React from "react";
 import { SearchInput } from "~/components/search_input";
 import { Link } from "~/renderer/Link";
 import { usePageContext } from "~/renderer/usePageContext";
@@ -29,14 +29,18 @@ import { usePageContext } from "~/renderer/usePageContext";
  * ---------------------------------------------------------
  * @param {ChildProps} children Child components to be rendered.
  * ---------------------------------------------------------
- * - Navbar
+ * - Navbar star-wars
  * ---------------------------------------------------------
  * @returns Page Layout Wrapper.
  */
-const DefualtLayout = ({ children }: ChildProps) => {
+const DefualtLayout = ({
+  children,
+}: {
+  children: React.ReactNode | React.ReactNode[];
+}) => {
   const context = usePageContext();
-  //@ts-ignore
-  console.log(context);
+
+  // console.log(context);
   return (
     <main className="h-screen w-screen flex flex-row items-center bg-accent overflow-hidden">
       <Sidebar />
@@ -52,6 +56,9 @@ const DefualtLayout = ({ children }: ChildProps) => {
             </Button>
             <Button variant={"ghost"} asChild>
               <Link href="/issues">Issue</Link>
+            </Button>
+            <Button variant={"ghost"} asChild>
+              <Link href="/star-wars">Star Wars</Link>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger>
