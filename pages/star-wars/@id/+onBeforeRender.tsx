@@ -13,11 +13,11 @@ import type { MovieDetails } from "../types";
 const onBeforeRender: OnBeforeRenderAsync = async (
   pageContext: PageContextServer | PageContextClient
 ): ReturnType<OnBeforeRenderAsync> => {
-  const dataUrl = `https://star-wars.brillout.com/api/films/${pageContext.routeParams?.id}.json`;
-  let movie: MovieDetails;
+  const dataUrl = `http://localhost:3000/api/ping`;
+  let movie: any;
   try {
-    const response = await fetch(dataUrl);
-    movie = (await response.json()) as MovieDetails;
+    const response = await fetch("");
+    movie = await response.json();
   } catch (err) {
     console.error(err);
     //*/
