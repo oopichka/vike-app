@@ -1,5 +1,5 @@
 /* eslint-disable promise/param-names */
-// https://vike.dev/onBeforeRender
+
 import type { OnBeforeRenderAsync } from "vike/types"
 import { pinFunc } from "~/server/controllers/PingController"
 

@@ -97,7 +97,7 @@ export const SidebarGroup = ({
       >
         <h4
           className={cn(
-            "transition-opacity ease-linear duration-[50ms]",
+            "transition-opacity ease-linear duration-75",
             "text-lg font-bold tracking-tight",
             "w-full text-clip whitespace-nowrap overflow-hidden opacity-100"
           )}

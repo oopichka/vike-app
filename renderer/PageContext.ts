@@ -2,7 +2,7 @@ import React from "react"
 
 type PageProps = Record<string, unknown>
 type Page = (pageProps: PageProps) => React.ReactElement
-// https://vike.dev/pageContext#typescript
+
 declare global {
   namespace Vike {
     interface PageContext {

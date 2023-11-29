@@ -1,4 +1,3 @@
-// https://vike.dev/onRenderClient
 import React from "react"
 import ReactDOM from "react-dom/client"
 import type { OnRenderClientAsync } from "vike/types"

@@ -1,11 +1,9 @@
 import type { Config } from "vike/types";
 
-// https://vike.dev/config
 export default {
   passToClient: ["pageProps", "title", "someAsyncProps"],
   clientRouting: true,
   hydrationCanBeAborted: true,
-  // https://vike.dev/meta
   meta: {
     // Create new config 'title'
     title: {

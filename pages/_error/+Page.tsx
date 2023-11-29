@@ -1,8 +1,8 @@
+import React from "react"
+import { usePageContext } from "~/renderer/usePageContext"
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default Page
-
-import React from "react"
-import { usePageContext } from "../../renderer/usePageContext"
 
 function Page() {
   const ctx = usePageContext()

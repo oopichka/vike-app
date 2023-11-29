@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-// https://vike.dev/onRenderHtml
+
 import React from "react"
 // @ts-ignore
 import { renderToStream } from "react-streaming/server"
@@ -68,7 +68,6 @@ const onRenderHtml: OnRenderHtmlAsync = async (
 
   return {
     documentHtml,
-    // See https://vike.dev/stream#initial-data-after-stream-end
     pageContext: async () => {
       return {}
     },
