@@ -1,14 +1,14 @@
-export default Page;
+export default Page
 
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "~/components/ui/card";
-import { usePageContext } from "~/renderer/usePageContext";
+} from "~/components/ui/card"
+import { usePageContext } from "~/renderer/usePageContext"
 
 // import { PageProps, homeProps } f
 
@@ -40,5 +40,5 @@ function Page() {
         </Card>
       </div>
     </>
-  );
+  )
 }

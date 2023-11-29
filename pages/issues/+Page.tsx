@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "~/components/ui/card";
-import { usePageContext } from "~/renderer/usePageContext";
-import { Issue, Paper } from "./+onBeforeRender";
+} from "~/components/ui/card"
+import { usePageContext } from "~/renderer/usePageContext"
+import { Issue, Paper } from "./+onBeforeRender"
 
 function Page({
   pingData,
   currentIssue,
   fakePapers,
 }: {
-  pingData: any;
-  currentIssue: Issue;
-  fakePapers: Paper[];
+  pingData: any
+  currentIssue: Issue
+  fakePapers: Paper[]
 }) {
   return (
     <div className="issue-page">
@@ -43,7 +43,7 @@ function Page({
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default Page;
+export default Page

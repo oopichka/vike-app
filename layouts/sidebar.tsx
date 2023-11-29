@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import { ArrowLeftToLine, ArrowRightToLine } from "lucide-react";
-import Icon, { IconType } from "~/components/icon";
-import { Button } from "~/components/ui/button";
+import { ArrowLeftToLine, ArrowRightToLine } from "lucide-react"
+import Icon, { IconType } from "~/components/icon"
+import { Button } from "~/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "~/components/ui/tooltip";
-import { cn } from "~/lib/utils";
-import { Link } from "~/renderer/Link";
+} from "~/components/ui/tooltip"
+import { cn } from "~/lib/utils"
+import Link from "~/renderer/Link"
 
 export const SidebarBTN = ({
   icon,
@@ -19,21 +19,21 @@ export const SidebarBTN = ({
   onClick,
   active = false,
 }: {
-  icon: IconType;
-  label: string;
-  sidebarOpen: boolean;
-  onClick?: () => void;
-  active?: boolean;
+  icon: IconType
+  label: string
+  sidebarOpen: boolean
+  onClick?: () => void
+  active?: boolean
 }) => {
-  const [hovered, sethovered] = useState(false);
+  const [hovered, sethovered] = useState(false)
 
-  const IconElement = <Icon name={icon} className={"w-5 h-5"} />;
+  const IconElement = <Icon name={icon} className={"w-5 h-5"} />
   return (
     <TooltipProvider>
       <Tooltip
         open={hovered}
         onOpenChange={(e) => {
-          sethovered(!sidebarOpen ? e : false);
+          sethovered(!sidebarOpen ? e : false)
         }}
         delayDuration={75}
       >
@@ -68,17 +68,17 @@ export const SidebarBTN = ({
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
-  );
-};
+  )
+}
 
 export const SidebarGroup = ({
   title,
   sidebarOpen,
   children,
 }: {
-  title: string;
-  sidebarOpen: boolean;
-  children?: JSX.Element[] | JSX.Element;
+  title: string
+  sidebarOpen: boolean
+  children?: React.ReactElement[] | React.ReactElement
 }) => {
   return (
     <div
@@ -114,11 +114,15 @@ export const SidebarGroup = ({
         {children}
       </div>
     </div>
-  );
-};
+  )
+}
 
-const Sidebar = ({ children }: { children?: JSX.Element[] | JSX.Element }) => {
-  const [sidebarOpen, setsidebarOpen] = useState(false);
+const Sidebar = ({
+  children,
+}: {
+  children?: React.ReactElement[] | React.ReactElement
+}) => {
+  const [sidebarOpen, setsidebarOpen] = useState(false)
 
   return (
     <aside
@@ -136,7 +140,7 @@ const Sidebar = ({ children }: { children?: JSX.Element[] | JSX.Element }) => {
             !sidebarOpen ? "mx-0" : "mx-2"
           )}
         >
-          <Link href="/">
+          <a href="/">
             <img
               src="/static/Icons/android-chrome-512x512.png"
               alt="Isca Logo"
@@ -145,7 +149,7 @@ const Sidebar = ({ children }: { children?: JSX.Element[] | JSX.Element }) => {
                 sidebarOpen ? "w-[55px]" : "w-[45px]"
               )}
             />
-          </Link>
+          </a>
         </div>
 
         <h3
@@ -241,7 +245,7 @@ const Sidebar = ({ children }: { children?: JSX.Element[] | JSX.Element }) => {
         </TooltipProvider>
       </div>
     </aside>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

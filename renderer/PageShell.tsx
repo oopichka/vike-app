@@ -1,26 +1,28 @@
-import React from "react";
-import type { PageContext } from "vike/types";
-import DefualtLayout from "~/layouts/defualt";
-import "~/styles/PageShell.css";
-import "~/styles/shadcn.css";
-import { Link } from "./Link";
-import logoUrl from "./logo.svg";
-import { PageContextProvider } from "./usePageContext";
-
-export { PageShell };
+import React from "react"
+import type { PageContext } from "vike/types"
+import PrivateLayout from "~/layouts/private"
+import PublicLayout from "~/layouts/public"
+import "~/styles/PageShell.css"
+import "~/styles/shadcn.css"
+import Link from "./Link"
+import logoUrl from "./static/ISCA-LightMode.svg"
+import { PageContextProvider } from "./usePageContext"
 
 function PageShell({
   pageContext,
   children,
 }: {
-  pageContext: PageContext;
-  children: React.ReactNode;
+  pageContext: PageContext
+  children: React.ReactNode
 }) {
   return (
     <React.StrictMode>
       <PageContextProvider pageContext={pageContext}>
-        <DefualtLayout>{children}</DefualtLayout>
+        <PrivateLayout>{children}</PrivateLayout>
+        {/* <PublicLayout>{children}</PublicLayout> */}
       </PageContextProvider>
     </React.StrictMode>
-  );
+  )
 }
+
+export default PageShell

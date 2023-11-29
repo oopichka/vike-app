@@ -48,7 +48,7 @@ const ISCA_Logo = () => {
         </tspan>
       </text>
     </svg>
-  );
-};
+  )
+}
 
-export default ISCA_Logo;
+export default ISCA_Logo

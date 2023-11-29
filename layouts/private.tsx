@@ -1,13 +1,10 @@
 // import ISCA_Logo from "@/../static/ISCA-LightMode.svg"
 
-import { Bell, LayoutDashboard, LogOut, User, UserCircle2 } from "lucide-react";
+import { Bell, LayoutDashboard, LogOut, User, UserCircle2 } from "lucide-react"
 
-import { Avatar } from "~/components/ui/avatar";
+import { Avatar, AvatarFallback } from "~/components/ui/avatar"
 
-import { ChildProps } from "~/types/childcomponents";
-
-import { AvatarFallback } from "~/components/ui/avatar";
-import { Button } from "~/components/ui/button";
+import { Button } from "~/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,49 +14,46 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
-import Sidebar from "./sidebar";
+} from "~/components/ui/dropdown-menu"
+import Sidebar from "./sidebar"
 
-import React from "react";
-import { SearchInput } from "~/components/search_input";
-import { Link } from "~/renderer/Link";
-import { usePageContext } from "~/renderer/usePageContext";
+import React from "react"
+import { SearchInput } from "~/components/search_input"
+
+import Link from "~/renderer/Link"
+import { usePageContext } from "~/renderer/usePageContext"
+import Navbar from "./navbar"
 /**
  * DefualtLayout
  * ---------------------------------------------------------
- * @param {ChildProps} children Child components to be rendered.
+ * @param {React.ReactNode | React.ReactNode[]} children Child components to be rendered.
  * ---------------------------------------------------------
  * - Navbar star-wars
  * ---------------------------------------------------------
  * @returns Page Layout Wrapper.
  */
-const DefualtLayout = ({
+const PrivateLayout = ({
   children,
 }: {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode | React.ReactNode[]
 }) => {
-  const context = usePageContext();
+  const context = usePageContext()
 
   // console.log(context);
   return (
-    <main className="h-screen w-screen flex flex-row items-center bg-accent overflow-hidden">
+    <main className="h-screen w-screen flex flex-row items-center bg-background overflow-hidden">
       <Sidebar />
 
       <article className="flex-1 flex-col h-full relative overflow-auto">
-        <header className="h-[55px] border-b w-full sticky top-0 bg-background flex flex-row justify-between items-center px-3">
+        <Navbar isPrivateView />
+        {/* <header className="h-[55px] border-b w-full sticky top-0 bg-background flex flex-row justify-between items-center px-3">
           <div className="flex-1">
             <SearchInput />
           </div>
           <div className="items-center justify-end flex flex-row gap-2 flex-1">
-            <Button variant={"ghost"} asChild>
-              <Link href="/">Home</Link>
-            </Button>
-            <Button variant={"ghost"} asChild>
-              <Link href="/issues">Issue</Link>
-            </Button>
-            <Button variant={"ghost"} asChild>
-              <Link href="/star-wars">Star Wars</Link>
-            </Button>
+            <Link href="/">Home</Link>
+            <Link href="/issues">Issue</Link>
+
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Avatar className="flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
@@ -96,11 +90,11 @@ const DefualtLayout = ({
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-        </header>
+        </header> */}
         <section className="p-6">{children}</section>
       </article>
     </main>
-  );
-};
+  )
+}
 
-export default DefualtLayout;
+export default PrivateLayout

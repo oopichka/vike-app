@@ -1,32 +1,32 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Input } from "~/components/ui/input";
-import { useDebounce } from "~/hooks/useDebounce";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { useCallback, useEffect, useRef, useState } from "react"
+import { Input } from "~/components/ui/input"
+import { useDebounce } from "~/hooks/useDebounce"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card"
 
 export const SearchInput = () => {
-  const [open, setopen] = useState(false);
-  const [searchWidth, setSearchWidth] = useState<number>(500);
-  const [searchValue, setSearchValue] = useState<string>("");
-  const searchQuery = useDebounce<string>(searchValue, 300);
-  const searchRef = useRef<HTMLInputElement>(null);
+  const [open, setopen] = useState(false)
+  const [searchWidth, setSearchWidth] = useState<number>(500)
+  const [searchValue, setSearchValue] = useState<string>("")
+  const searchQuery = useDebounce<string>(searchValue, 300)
+  const searchRef = useRef<HTMLInputElement>(null)
 
   const onResize = useCallback(() => {
     if (searchRef.current) {
-      setSearchWidth(searchRef.current?.clientWidth ?? 500);
+      setSearchWidth(searchRef.current?.clientWidth ?? 500)
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    window.addEventListener("resize", onResize);
-    onResize();
+    window.addEventListener("resize", onResize)
+    onResize()
     return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
+      window.removeEventListener("resize", onResize)
+    }
+  }, [])
 
   useEffect(() => {
     //console.log(searchQuery);
-  }, [searchQuery]);
+  }, [searchQuery])
 
   return (
     <div>
@@ -39,7 +39,7 @@ export const SearchInput = () => {
             ref={searchRef}
             onChange={(e) => setSearchValue(e.target.value)}
             onFocus={() => {
-              setopen(true);
+              setopen(true)
             }}
             onBlur={() => setopen(false)}
           />
@@ -49,5 +49,5 @@ export const SearchInput = () => {
         </HoverCardContent>
       </HoverCard>
     </div>
-  );
-};
+  )
+}

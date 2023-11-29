@@ -1,3 +1,7 @@
+import React from "react"
+
+type PageProps = Record<string, unknown>
+type Page = (pageProps: PageProps) => React.ReactElement
 // https://vike.dev/pageContext#typescript
 declare global {
   namespace Vike {
@@ -15,9 +19,3 @@ declare global {
     }
   }
 }
-
-type Page = (pageProps: PageProps) => React.ReactElement
-type PageProps = Record<string, unknown>
-
-// Tell TypeScript that this file isn't an ambient module
-export {}

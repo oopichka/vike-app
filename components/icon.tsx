@@ -1,13 +1,13 @@
-import { icons } from "lucide-react";
-import { cn } from "~/lib/utils";
+import { icons } from "lucide-react"
+import { cn } from "~/lib/utils"
 
-export type IconType = keyof typeof icons;
+export type IconType = keyof typeof icons
 
 export interface IconProps {
-  name: IconType;
-  color?: string;
-  size?: string;
-  className?: string;
+  name: IconType
+  color?: string
+  size?: string
+  className?: string
 }
 
 /**
@@ -16,7 +16,7 @@ export interface IconProps {
  * @returns {JSX.Element}
  */
 const Icon = ({ name, color, size, className }: IconProps) => {
-  const LucideIcon = icons[name];
+  const LucideIcon = icons[name]
 
   return (
     <LucideIcon
@@ -24,7 +24,7 @@ const Icon = ({ name, color, size, className }: IconProps) => {
       size={size}
       className={cn("opacity-[0.99]", className)}
     />
-  );
-};
+  )
+}
 
-export default Icon;
+export default Icon

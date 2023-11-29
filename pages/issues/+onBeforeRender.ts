@@ -1,23 +1,23 @@
 /* eslint-disable promise/param-names */
 // https://vike.dev/onBeforeRender
-import type { OnBeforeRenderAsync } from "vike/types";
-import { pinFunc } from "~/server/controllers/PingController";
+import type { OnBeforeRenderAsync } from "vike/types"
+import { pinFunc } from "~/server/controllers/PingController"
 
 export interface Issue {
-  issueVol: string;
-  issueNo: string;
-  month: string;
-  editors: string[];
+  issueVol: string
+  issueNo: string
+  month: string
+  editors: string[]
 }
 export interface Paper {
-  id: number;
-  issueVol: string;
-  issueNo: string;
-  month: string;
-  title: string;
-  author: string;
-  abstract: string;
-  editors?: string[];
+  id: number
+  issueVol: string
+  issueNo: string
+  month: string
+  title: string
+  author: string
+  abstract: string
+  editors?: string[]
 }
 
 const currentIssue: Issue = {
@@ -25,7 +25,7 @@ const currentIssue: Issue = {
   issueNo: "3",
   month: "September",
   editors: ["Ajay Bandi", "Mohammad Hossain", "Ying Jin"],
-};
+}
 
 const fakePapers: Paper[] = [
   {
@@ -95,7 +95,7 @@ const fakePapers: Paper[] = [
   //   abstract: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   // }
   // Add more fake issues as needed
-];
+]
 
 const onBeforeRender: OnBeforeRenderAsync = async (
   pageContext
@@ -113,11 +113,11 @@ const onBeforeRender: OnBeforeRenderAsync = async (
       // The page's <title>
       title: "Issues",
     },
-  };
-};
-
-function sleep(milliseconds: number): Promise<void> {
-  return new Promise((r) => setTimeout(r, milliseconds));
+  }
 }
 
-export default onBeforeRender;
+function sleep(milliseconds: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, milliseconds))
+}
+
+export default onBeforeRender
